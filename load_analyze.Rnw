@@ -1,0 +1,154 @@
+\documentclass[11pt, reqno]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{booktabs}
+
+
+%\usepackage[ansinew]{inputenc}
+%\usepackage{array}
+%\usepackage{color}
+
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amstext}
+\usepackage{amssymb}
+
+\usepackage{latexsym}
+
+
+
+%%% NEED THIS AT TOP bibliography
+\usepackage{natbib}
+\citestyle{chicago}
+\usepackage{url}
+
+%%% numbers and compressions
+%\usepackage{savetrees}
+%\usepackage{lineno}
+\linespread{1.2}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\SweaveOpts{prefix.string=figs/evo}
+
+\newcounter{todo}
+\setcounter{todo}{1}\newcommand{\todo}[1]{\textcircled{\footnotesize\thetodo}\marginpar{\textcircled{\footnotesize\thetodo}\footnotesize
+    Todo: #1}\stepcounter{todo}}
+
+
+\numberwithin{equation}{section}
+
+\title{A look at \#scifund}
+\author{Jaime Ashander}
+\date{\today}
+
+\begin{document}
+
+
+%\maketitle
+\begin{center}
+{\bf  A look at \#scifund}
+  
+  Jaime Ashander
+  \end{center}
+
+\pagenumbering{arabic} % Start text with arabic 1
+
+\subsection*{Linear models}
+
+Models selected using stepwise AIC ({\tt step}) and most non-collinear terms. 
+
+
+<<echo=FALSE>>=
+prj.stats =read.csv('proj.txt')
+prj.stats$percent.funded = with(prj.stats, fund_attained/fund_goal)
+prj.stats$multiple.contributions = with(prj.stats, total_contributions/unique_contributions)
+prj.stats$average.contribution = with(prj.stats, fund_attained/total_contributions)
+prj.stats$multiple.contributions.bool = prj.stats$multiple.contributions > 1
+@ 
+
+\subsection*{percent funded} 
+
+Initial model
+<<>>=
+lm.funded1 = lm(percent.funded~description_length+ total_contributions+ 
+  fund_goal+ multiple.contributions+ average.contribution, data = prj.stats)
+@ 
+
+<<echo=false,results=hide>>=
+lm.funded = step(lm.funded1)
+@ 
+
+Final model
+<<echo=false>>=
+a = summary(lm.funded)
+coef(a)
+@ 
+
+
+\subsection*{average contribution}
+
+Initial model 
+<<>>=
+lm.avgive1 = lm(average.contribution~description_length+
+  total_contributions+
+  fund_goal+
+  multiple.contributions, data = prj.stats)
+@ 
+<<echo=false,results=hide>>=
+lm.avgive = step(lm.avgive1)
+@ 
+
+Final model
+<<echo=false>>=
+b = summary(lm.avgive)
+coef(b)
+@ 
+
+
+\subsection*{conclusions}
+\begin{itemize}
+  \item  percentage funded: 
+    \begin{itemize}
+      \item funding goal negative
+      \item  more contribs better
+      \item  having multiple contribs {\em didn't} help achieve full funding
+      \item longer description did not help, may slightly hurt
+      \item higher average contribution did not help
+      \end{itemize}
+    \item average contribution 
+      \begin{itemize}
+      \item having multiple contribs per contributor may up the average contribution, but nothing else seems to help
+      \item  may be driven by a few outliers (see Figure 2)
+      \end{itemize}
+      \end{itemize}
+
+      \newpage
+\subsection*{Figures (ggplot2)}
+<<echo=false>>=
+require(ggplot2)
+prj.stats$description_length =cut_number(prj.stats$description_length, n=5)
+prj.stats$av.contrib.factor = cut_number(prj.stats$average.contribution, n=3)
+g = ggplot(prj.stats)
+@
+Multipanel is split over average contribution (columns) and whether some contributors contributed multiple (rows).
+
+<<fig=TRUE,echo=FALSE>>=
+g2 = g+theme_bw() + geom_point(aes(fund_goal, percent.funded, size=total_contributions, color=description_length))+ facet_grid(multiple.contributions.bool~av.contrib.factor)+scale_color_brewer(type='seq')
+print(g2)
+@ 
+
+<<fig=TRUE,echo=FALSE>>=
+g3 = g +theme_bw() + geom_point(aes(multiple.contributions, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
+print(g3)
+@ 
+
+<<echo=FALSE>>=
+#g +theme_bw()+ geom_boxplot(aes(multiple.contributions.bool, average.contribution))+ geom_point(aes(multiple.contributions.bool, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
+
+@ 
+
+\end{document}
