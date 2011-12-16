@@ -1,13 +1,10 @@
 <!--roptions dev=png,width=5,height=5 -->
 
-A look at #scifund[^now]
+A look at #scifund
 ======
 
 Jaime Ashander
 -----
-
-[^now]: now using the awesome `knitr` package, need to set options to 'gfm' and `base.url` appropriately
-
 
 # Linear Models #
 
@@ -104,4 +101,18 @@ end.rcode-->
 g +theme_bw() + geom_point(aes(multiple.contributions, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
 
 #g +theme_bw()+ geom_boxplot(aes(multiple.contributions.bool, average.contribution))+ geom_point(aes(multiple.contributions.bool, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
+end.rcode-->
+
+# Knitr #
+
+Need to use not only the options below suggested by knitr docs
+
+<!--begin.rcode eval=FALSE
+opts_knit$set(theme='gfm', base.url="https://github.com/ashander/scifundstats/")
+end.rcode-->
+
+but also 
+
+<!--begin.rcode eval=FALSE
+opts_knit$set(out.format='gfm')
 end.rcode-->
