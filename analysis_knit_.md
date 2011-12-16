@@ -19,7 +19,7 @@ prj.stats$average.contribution = with(prj.stats, fund_attained/total_contributio
 prj.stats$multiple.contributions.bool = prj.stats$multiple.contributions > 1
 end.rcode-->
 
-## percent funded ## 
+## percent funded ##
 
 Initial model
 <!--begin.rcode
@@ -37,7 +37,7 @@ a = summary(lm.funded)
 coef(a)
 end.rcode-->
 
-## average contribution ## 
+## average contribution ##
 
 Initial model
 <!--begin.rcode,echo=FALSE
@@ -57,9 +57,9 @@ b = summary(lm.avgive)
 coef(b)
 end.rcode-->
 
-## initial conclusions ## 
+## initial conclusions ##
 
-### percentage funded: ###  
+### percentage funded: ###
 
 * funding goal negative 
 * more contribs better 

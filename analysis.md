@@ -14,7 +14,7 @@ Models selected using stepwise AIC (`step`) from initial models of most non-coll
 
 
 
-## percent funded ## 
+## percent funded ##
 
 Initial model
 ```r
@@ -39,7 +39,7 @@ lm.funded1 = lm(percent.funded ~ description_length +
 
 
 
-## average contribution ## 
+## average contribution ##
 
 Initial model
 
@@ -59,9 +59,9 @@ Initial model
 
 
 
-## initial conclusions ## 
+## initial conclusions ##
 
-### percentage funded: ###  
+### percentage funded: ###
 
 * funding goal negative 
 * more contribs better 
