@@ -3,12 +3,14 @@
 A look at #scifund
 ======
 
-Jaime Ashander
+Jaime Ashander[^now]
 -----
+
+[^now]: rewritten using [knitr](http://yihui.github.com/knitr/)
 
 # Linear Models #
 
-Models selected using stepwise AIC (`step`) and most non-collinear terms. 
+Models selected using stepwise AIC (`step`) from initial models of most non-collinear terms. 
 
 
 
@@ -24,7 +26,7 @@ lm.funded1 = lm(percent.funded ~ description_length +
 
 
 
-Final model
+... final model includes these coefficients:
 
 
 
@@ -44,7 +46,7 @@ Initial model
 
 
 
-Final model
+... final model includes these coefficients:
 
 
 
