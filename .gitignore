@@ -1,4 +1,5 @@
-.Rdata
+.#*
+.R*
 *.aux
 *.pdf
 *.log
