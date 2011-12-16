@@ -74,7 +74,7 @@ contribution, but nothing else seems to help
 * may be driven by a few outliers (see Figure 2)
 
 
-## future work ## 
+## future work ##
 
 * differences by discipline?
 * textual analysis
