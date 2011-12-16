@@ -3,10 +3,9 @@
 A look at #scifund
 ======
 
-Jaime Ashander[^now]
+Jaime Ashander
 -----
 
-[^now]: rewritten using [knitr](http://yihui.github.com/knitr/)
 
 # Linear Models #
 
@@ -111,6 +110,8 @@ g + theme_bw() + geom_point(aes(multiple.contributions,
 
 
 # Knitr #
+
+Rewritten from sweave to the excellent [knitr](http://yihui.github.com/knitr/).
 
 Need to use not only the options below suggested by knitr docs
 
