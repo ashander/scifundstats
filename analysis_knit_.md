@@ -99,8 +99,6 @@ end.rcode-->
 
 <!--begin.rcode average-contribution,fig=TRUE,message=FALSE
 g +theme_bw() + geom_point(aes(multiple.contributions, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
-
-#g +theme_bw()+ geom_boxplot(aes(multiple.contributions.bool, average.contribution))+ geom_point(aes(multiple.contributions.bool, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
 end.rcode-->
 
 # Knitr #
@@ -115,4 +113,9 @@ but also
 
 <!--begin.rcode eval=FALSE
 opts_knit$set(out.format='gfm')
+end.rcode-->
+
+
+<!--begin.rcode, eval=FALSE,echo=FALSE
+#g +theme_bw()+ geom_boxplot(aes(multiple.contributions.bool, average.contribution))+ geom_point(aes(multiple.contributions.bool, average.contribution, color=description_length, size=fund_goal))+scale_color_brewer(type='seq')
 end.rcode-->
