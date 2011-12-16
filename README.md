@@ -1,4 +1,8 @@
-A quick and dirty analysis of #scifund contributors to success
+A quick and dirty analysis of #scifund contributors to success.
+
+Run the sweave to see analysis, R to just get the analysis code. 
+
+.py code pulls html from rockethub, but only if you rm archive.dat first
 
 percentage funded: 
 
