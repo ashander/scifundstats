@@ -96,7 +96,7 @@ g + theme_bw() + geom_point(aes(fund_goal, percent.funded,
     facet_grid(multiple.contributions.bool ~ av.contrib.factor) + 
     scale_color_brewer(type = "seq")
 ```
-![plot of chunk percent-funded](https://github.com/ashander/scifundstats/percent-funded.png)
+![plot of chunk percent-funded](https://github.com/ashander/scifundstats/raw/master/percent-funded.png)
 
 
 
@@ -105,7 +105,7 @@ g + theme_bw() + geom_point(aes(multiple.contributions,
     average.contribution, color = description_length, size = fund_goal)) + 
     scale_color_brewer(type = "seq")
 ```
-![plot of chunk average-contribution](https://github.com/ashander/scifundstats/average-contribution.png)
+![plot of chunk average-contribution](https://github.com/ashander/scifundstats/raw/master/average-contribution.png)
 
 
 # Knitr #
@@ -113,7 +113,7 @@ g + theme_bw() + geom_point(aes(multiple.contributions,
 Need to use not only the options below suggested by knitr docs
 
 ```r
-opts_knit$set(theme = "gfm", base.url = "https://github.com/ashander/scifundstats/")
+opts_knit$set(theme = "gfm", base.url = "https://github.com/ashander/scifundstats/raw/master/")
 ```
 
 

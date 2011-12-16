@@ -106,7 +106,7 @@ end.rcode-->
 Need to use not only the options below suggested by knitr docs
 
 <!--begin.rcode eval=FALSE
-opts_knit$set(theme='gfm', base.url="https://github.com/ashander/scifundstats/")
+opts_knit$set(theme='gfm', base.url="https://github.com/ashander/scifundstats/raw/master/")
 end.rcode-->
 
 but also 
