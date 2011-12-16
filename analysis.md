@@ -105,16 +105,7 @@ g + theme_bw() + geom_point(aes(multiple.contributions,
     average.contribution, color = description_length, size = fund_goal)) + 
     scale_color_brewer(type = "seq")
 ```
-![plot of chunk average-contribution](https://github.com/ashander/scifundstats/average-contribution.png)```r
-
-#g +theme_bw()+
-#   geom_boxplot(aes(multiple.contributions.bool,
-#   average.contribution))+
-#   geom_point(aes(multiple.contributions.bool,
-#   average.contribution, color=description_length,
-#   size=fund_goal))+scale_color_brewer(type='seq')
-```
-
+![plot of chunk average-contribution](https://github.com/ashander/scifundstats/average-contribution.png)
 
 
 # Knitr #
@@ -132,5 +123,9 @@ but also
 ```r
 opts_knit$set(out.format = "gfm")
 ```
+
+
+
+
 
 
