@@ -4,4 +4,4 @@ Run knitr on `analysis_knit_.md` to see analysis, R on `analysis_knit_.R` to jus
 
 `.py` file pulls html from rockethub, but only if you `rm archive.dat` first
 
-See ![the quick and dirty writeup](https://github.com/ashander/scifundstats/blob/master/analysis.md) for "results"
+See [the quick and dirty writeup](https://github.com/ashander/scifundstats/blob/master/analysis.md) for "results"
