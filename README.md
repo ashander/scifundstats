@@ -18,3 +18,9 @@ average contribution
 contribution, but nothing else seems to help 
 * may be driven by a few outliers (see Figure 2)
 
+
+future work
+
+* differences by discipline?
+* textual analysis
+* any way to connect to social network? e.g., quanitify number of friends/followers?
